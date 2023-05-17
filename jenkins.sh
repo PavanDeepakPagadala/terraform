@@ -23,11 +23,11 @@
               ln -s /opt/apache-tomcat-9.0.0.M17 /opt/tomcat
 
               # Allow remote access to Tomcat
-              sed -i 's/<Connector port="8080"/<Connector port="8081" address="0.0.0.0"/' /opt/apache-tomcat-9.0.0.M17/conf/server.xml
+              sed -i 's/<Connector port="8080"/<Connector port="8081" address="0.0.0.0"/' /opt/tomcat/conf/server.xml
 
               # Start Tomcat
-              /opt/apache-tomcat-9.0.0.M17/bin/shutdown.sh
-              /opt/apache-tomcat-9.0.0.M17/bin/startup.sh
+              /opt/tomcat/bin/shutdown.sh
+              /opt/tomcat/bin/startup.sh
               
               # Install Docker
               yum install -y docker
