@@ -29,7 +29,7 @@
               /opt/tomcat/bin/shutdown.sh
               /opt/tomcat/bin/startup.sh
               
-              # Configure sudoers file
+              # Configure sudoers file to allow jenkins user to run commands
               echo 'jenkins ALL=(ALL) NOPASSWD: ALL' | tee /etc/sudoers.d/jenkins
               chmod 440 /etc/sudoers.d/jenkins
               chown root:root /etc/sudoers.d/jenkins
