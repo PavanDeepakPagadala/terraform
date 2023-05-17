@@ -14,6 +14,10 @@ output "tomcat_url" {
   value = "http://${aws_instance.example.public_ip}:8081"
 }
 
+output "instance_dns" {
+  value = aws_instance.example.public_dns
+}
+
 output "security_group_id" {
   value = aws_security_group.example.id
 }
