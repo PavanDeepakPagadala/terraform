@@ -5,30 +5,31 @@ terraform {
 
 # Provider information
 provider "aws" {
+  alias  = "second"
   region = var.location
 }
 
 
 # EC2 instance resource
-resource "aws_instance" "jenkins" {
+resource "aws_instance" "sonar" {
   ami             = var.ami
   instance_type   = var.instance_type
   key_name        = var.key_name
   subnet_id       = var.subnet-id
-  security_groups = [aws_security_group.jenkins.id]
+  security_groups = [aws_security_group.sonar.id]
 
 
   # Use provided bash script as user data
-  user_data = file("${path.module}/jenkins.sh")
+  user_data = file("${path.module}/sonarqube.sh")
 
   tags = {
-    Name = var.instance_name
+    Name = var.sonar_instance_name
   }
 }
 
 
 # Security group resource to allow access to ports
-resource "aws_security_group" "jenkins" {
+resource "aws_security_group" "sonar" {
   name_prefix = var.sg-name
 
   ingress {
@@ -51,6 +52,14 @@ resource "aws_security_group" "jenkins" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
+
+  ingress {
+    from_port   = 9000
+    to_port     = 9000
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
 
   ingress {
     from_port   = 8081

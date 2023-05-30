@@ -37,3 +37,8 @@ variable "instance_name" {
 
   default = "jenkins"
 }
+
+variable "sonar_instance_name" {
+
+  default = "sonarqube"
+}

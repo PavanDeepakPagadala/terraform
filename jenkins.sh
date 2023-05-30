@@ -7,7 +7,7 @@
               update-alternatives --set java java-11-openjdk.x86_64
 
               yum install git -y
-              
+              yum intall python -y
               # Install Jenkins
               wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat/jenkins.repo
               rpm --import https://pkg.jenkins.io/redhat/jenkins.io-2023.key
