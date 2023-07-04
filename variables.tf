@@ -5,7 +5,7 @@ variable "location" {
 
 variable "ami" {
 
-  default = "ami-025b4b7b37b743227"
+  default = "ami-006935d9a6773e4ec"
 }
 
 variable "instance_type" {
@@ -20,25 +20,20 @@ variable "sg-name" {
 
 variable "key_name" {
 
-  default = "Pavan"
+  default = "ecommerce"
 }
 
 variable "vpc-id" {
 
-  default = "vpc-03e2773fff3ea1931"
+  default = "vpc-0148dfdd6f9809e78"
 }
 
 variable "subnet-id" {
 
-  default = "subnet-0a12b02e254d94319"
+  default = "subnet-028f99952292bf5d4"
 }
 
 variable "instance_name" {
 
   default = "jenkins"
-}
-
-variable "sonar_instance_name" {
-
-  default = "sonarqube"
 }
